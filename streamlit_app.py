@@ -41,8 +41,8 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load contains:")
-df = streamlit.dataframe(my_data_rows)
-index = list(df["Fruit"])
+streamlit.dataframe(my_data_rows)
+index = list(my_data_rows["Fruit"])
 
 
 # Let's put a pick list here so they can pick the fruit they want to include 
