@@ -46,6 +46,6 @@ my_fruit_list2 = my_data_rows.set_index('Fruit')
 
 
 # Let's put a pick list here so they can pick the fruit they want to include 
-fruits_select = streamlit.multiselect("Pick some fruits:", list(my_fruit_list2.index), ['Banana'])
+fruits_select = streamlit.multiselect("Pick some fruits:", list(my_fruit_list2), ['Banana'])
 fruits_to_show = my_data_rows.loc[fruits_select]
 streamlit.text("Thanks for adding" + fruits_select)
