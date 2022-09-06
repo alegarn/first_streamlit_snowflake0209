@@ -48,3 +48,5 @@ my_data_rows = [''.join(i) for i in my_data_rows]
 # Let's put a pick list here so they can pick the fruit they want to include
 add_my_fruit = streamlit.multiselect("Pick some fruits:", my_data_rows, ['banana'])
 streamlit.text("Thanks for adding " + add_my_fruit[0])
+
+my_cur.execute("insert into fruit_load_list values ('from streamlit');")
