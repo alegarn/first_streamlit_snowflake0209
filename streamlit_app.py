@@ -40,12 +40,11 @@ my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
-print(type(my_data_rows))
 streamlit.header("The fruit load contains:")
 streamlit.dataframe(my_data_rows)
-print(my_data_rows)
+my_data_rows = [''.join(i) for i in my_data_rows]
 
 
 # Let's put a pick list here so they can pick the fruit they want to include
-add_my_fruit = streamlit.multiselect("Pick some fruits:", my_data_rows, [('banana',)])
-streamlit.text("Thanks for adding " + add_my_fruit[0][0])
+add_my_fruit = streamlit.multiselect("Pick some fruits:", my_data_rows, ['banana'])
+streamlit.text("Thanks for adding " + add_my_fruit[0])
